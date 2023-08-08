@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TypeScript Example</title> 
+  <script  type="module"  src="interfaces/cl-interfaces.js"> </script>
+  <script  type="module"  src="interfaces/valset-interfaces.js"> </script>
+  <script  type="module"  src="interfaces/index.js"> </script>
+  <script type="module"  src="index-run-tx.js"> </script>
+   
+</head>
+<body> 
+  <h1> Hello World</h1>
+  <div id = "selectModuleContainer"> 
+    <!-- <label> Select Module:  </label>
+    <select id = "select-module-element">
+      <option selected="selected" value="">Select...</option>
+    </select> -->
+  </div>
+<br/>
+  
+  <div id = "selectContainer">  
+    <input type="checkbox" id="autoGen" name="autoGen" value="Auto Generate Input Fields">
+    <label for="autoGen"> Auto Generate Input Fields</label><br>
+  </div>
+ 
+  <br/>  
+  <div id="formContainer"></div>
+  <br/> <br/>
+ 
+  <button id="handleGenerateComand">Generate Command</button>
+  <button id="handleLocalOsmosis">Send LocalOsmosis Command</button>
+  <br/> <br/>
+  <label >Command to execute</label>
+  <br/>
+  <textarea id="cmdToExecute" name="cmdToExecute" rows="4" cols="100">
+  </textarea>
+
+ 
+  <p> Output: </p> 
+  <code id="output"></code>
+
+
+</body> 
+</html>
