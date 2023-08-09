@@ -1,0 +1,49 @@
+body {
+   font-family: 'Poppins', sans-serif;
+}
+
+input {
+    padding: 5px;
+    font-family: 'Poppins', sans-serif; 
+    min-width: 200px; 
+}
+
+select {
+    padding: 5px;
+    min-width: 200px; 
+    padding-right: 10px; 
+    font-family: 'Poppins', sans-serif;
+    border:0;
+    box-shadow:0 0 2px 2px rgba(0.1,0,0,0.02);
+}
+
+button {
+    padding: 5px; 
+    padding-right: 7px;
+    padding-right: 7px;
+    font-family: 'Poppins', sans-serif;
+}
+
+#container {
+    width: 78%;
+    background-color: aliceblue;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;
+    min-height: 100em;
+    max-height: fit-content;
+}
+
+#selectContainerWrapper {
+    width: 80%;  
+    display: flex;  
+    justify-content: space-between; 
+}
+
+#selectModuleContainer {
+    width: 50%; 
+}
+
+#autoGenerateWrapper {  
+    width: 50%;    
+}

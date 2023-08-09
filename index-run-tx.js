@@ -2,10 +2,10 @@
 import * as txMsgs from "./interfaces/index.js";
 var selectedInterface;
 const ModulesNames = [
-    { value: "concentratedliquidity", label: "concentratedliquidity" },
-    { value: "valsetpref", label: "valsetpref" },
-    { value: "tokenfactory", label: "tokenfactory" },
-    { value: "superfluid", label: "superfluid" },
+    { value: "concentratedliquidity", label: "Concentratedliquidity" },
+    { value: "valsetpref", label: "Valsetpref" },
+    { value: "tokenfactory", label: "Tokenfactory" },
+    { value: "superfluid", label: "Superfluid" },
 ];
 const ModulesToMessages = {
     concentratedliquidity: [
