@@ -15,25 +15,28 @@ app.get('/', function (req, res) {
 app.post('/run-command', function (req, res) {
   const { command } = req.body;
 
+  var timeout = setTimeout(function() {
+    timeout = null;
+    console.log("Command execution might be taking longer than expected");
+    res.status(408).send('Command execution took too long and was stopped. Please check you localosmosis is running correctly');
+  }, 15000);  
+
   exec(command, (error, stdout, stderr) => {
+    if(timeout === null) // Exec completed after timeout
+        return;
+    clearTimeout(timeout);  // Clear the timeout if exec completes in time
+
     if (error) {
       console.log(`Error executing command, please check console for details: ${error}`);
-      res.status(500).send(error);
-      return;
+      return res.status(500).send(error);
     } 
 
     console.log('Command executed successfully'); 
  
-    var formatted = stdout
-    .replace(/\\n/g, "<br>")     
+    var formatted = stdout.replace(/\\n/g, "<br>")     
     let logs = formatted.split('logs:')[1];
     res.send(`Logs:` + logs);
   });
-
-  setTimeout(function() {
-    console.log("Command execution might be taking longer than expected");
-    res.status(408).send('Command execution took too long and was stopped. Please check you localosmosis is running correctly');
-      }, 15000);  
 });
 
 app.listen(3000, function () {

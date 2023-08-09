@@ -3,8 +3,8 @@
 <head>
   <link rel="stylesheet" href="index.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Press+Start+2P&family=Sarabun:wght@200;300;400;500;700&display=swap" rel="stylesheet">
   
   <title>TypeScript Example</title> 
   <script  type="module"  src="interfaces/cl-interfaces.js"> </script>
@@ -14,38 +14,64 @@
    
 </head>
 <body> 
-  <div id = "container">
-    <h1>OsmoSphere CLI</h1>   
-    <div id = "selectContainerWrapper">  
-      <div id = "selectModuleContainer">  
-      </div>
+ 
+  <div id="mySidebar" class="sidebar">
+    <h2 id = "logo"> Osmosis CLI </h2>
 
-      <div id = "autoGenerateWrapper">  
-        <input type="checkbox" id="autoGen" name="autoGen" value="Auto Generate Input Fields"> 
-        <label for="autoGen"> Auto Generate Input Fields</label>  
-     </div>
+    <a id="txMsgs"> Tx-Msgs </a>
+    <a id="query"> Queries </a>
+  </div>
+  
+  <div id="main">
+    <div id = "container">   
+      <div id = "networkContainer">  
+        <label for="networks">Network:</label>
+ 
+        <select name="networks" id="networks">
+        <option value="localosmosis">LocalOsmosis</option>
+        <option value="testnet">Testnet(osmo-test-5)</option>
+        <option value="edgenet">Edgenet</option>
+        <option value="mainnet">Mainnet</option>
+      </select>
     </div>
     <br/>
-    
-  <div id = "selectContainer">   
+
+      <div id = "selectContainerWrapper">  
+        <div id = "selectModuleContainer">  
+        </div>
+  
+        <div id = "autoGenerateWrapper">  
+          <input type="checkbox" id="autoGen" name="autoGen" value="Auto Generate Input Fields"> 
+          <label for="autoGen"> Auto Generate Input Fields</label>  
+       </div>
+      </div>
+      <br/>
+      
+    <div id = "selectContainer">   
+    </div>
+   
+    <br/>  
+    <div id="formContainer"></div>
+    <br/> <br/>
+   
+    <button id="handleGenerateComand">Generate Command</button> 
+    <br/> <br/>
+    <label >Command to execute</label>
+    <br/>
+    <textarea id="cmdToExecute" name="cmdToExecute" rows="4" cols="100">
+    </textarea>
+    <br/><br/>
+    <button id="handleLocalOsmosis">Send LocalOsmosis Command</button>
+    <br/> <br/>
+  
+   <div id = "outputWrapper">  
+    <p> Output: </p> 
+    <code id="output"></code>
+  </div>
+  </div>  
+    </p>
   </div>
  
-  <br/>  
-  <div id="formContainer"></div>
-  <br/> <br/>
- 
-  <button id="handleGenerateComand">Generate Command</button>
-  <button id="handleLocalOsmosis">Send LocalOsmosis Command</button>
-  <br/> <br/>
-  <label >Command to execute</label>
-  <br/>
-  <textarea id="cmdToExecute" name="cmdToExecute" rows="4" cols="100">
-  </textarea>
-
- 
-  <p> Output: </p> 
-  <code id="output"></code>
-</div>
 
 </body> 
 </html>

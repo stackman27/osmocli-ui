@@ -132,8 +132,8 @@ function generateModulesSelect() {
         if (oldMsgSelectElement) {
             oldMsgSelectElement.remove();
         }
-        buildSelect("selectContainer", "select-msgs", MsgsNames, null, 'Select Msgs: ', 'Select...');
-    }, "Select Module: ", "Select...");
+        buildSelect("selectContainer", "select-msgs", MsgsNames, null, 'Message: ', 'Select Msg ...');
+    }, "Modules: ", "Select Module ...");
 }
 function handleGenerateCommand() {
     for (const prop in selectedInterface) {

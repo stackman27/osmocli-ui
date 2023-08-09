@@ -175,10 +175,10 @@ function generateModulesSelect() {
         oldMsgSelectElement.remove();
       }   
 
-      buildSelect("selectContainer","select-msgs", MsgsNames, null, 'Select Msgs ', 'Select...');
+      buildSelect("selectContainer","select-msgs", MsgsNames, null, 'Message: ', 'Select Msg ...');
     },
-    "Select Module ",
-    "Select..."
+    "Modules: ",
+    "Select Module ..."
   );
 }
 
