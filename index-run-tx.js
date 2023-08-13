@@ -161,7 +161,7 @@ function handleSendRequest() {
     if (myParagraph != null) {
         myParagraph.textContent = "SENDING ...";
     }
-    fetch('http://localhost:3000/run-command', {
+    fetch('http://137.184.34.49:3000/run-command', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

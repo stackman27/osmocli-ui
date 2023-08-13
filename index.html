@@ -13,8 +13,7 @@
   <script type="module"  src="index-run-tx.js"> </script>
    
 </head>
-<body> 
- 
+<body>  
   <div id="mySidebar" class="sidebar">
     <h2 id = "logo"> Osmosis CLI </h2>
 
@@ -23,6 +22,10 @@
   </div>
   
   <div id="main">
+    <object type="image/svg+xml" id = "osmoicon1" data="osmoicon.svg"> 
+      Your browser does not support SVG
+    </object>
+ 
     <div id = "container">   
       <div id = "networkContainer">  
         <label for="networks">Network:</label>
@@ -52,8 +55,7 @@
    
     <br/>  
     <div id="formContainer"></div>
-    <br/> <br/>
-   
+    <br/> 
     <button id="handleGenerateComand">Generate Command</button> 
     <br/> <br/>
     <label >Command to execute</label>
@@ -68,10 +70,38 @@
     <p> Output: </p> 
     <code id="output"></code>
   </div>
-  </div>  
-    </p>
+
+  <div id = "containerQueries">  
+    <h1> This is for queries </h1>
   </div>
+
+  </div>  
  
+  </div>
+  
+  <script> 
+    window.onload = function() {
+      document.getElementById('container').style.display = 'block';
+      document.getElementById('containerQueries').style.display = 'none';
+  }
+
+    document.getElementById('query').addEventListener('click', function (event) {
+      document.getElementById('container').style.display = 'none';
+      document.getElementById('containerQueries').style.display = 'block';
+
+      this.style.opacity = '0.5'; // make this link light
+      document.getElementById('txMsgs').style.opacity = '1'; // make other link dark
+
+    });
+
+    document.getElementById('txMsgs').addEventListener('click', function (event) {
+      document.getElementById('container').style.display = 'block';
+      document.getElementById('containerQueries').style.display = 'none';
+
+      this.style.opacity = '0.5'; // make this link light
+      document.getElementById('query').style.opacity = '1'; // make other link dark
+    });
+  </script>
 
 </body> 
 </html>
