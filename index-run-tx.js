@@ -184,6 +184,42 @@ function handleSendRequest() {
         console.error('Error executing CLI command:', error);
     });
 }
+function handleRunLocalOsmosisRequest() {
+    fetch('http://137.184.34.49:3000/run-localosmosis', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({})
+    })
+        .then((response) => {
+        return response.text();
+    })
+        .then((data) => {
+        console.log('CLI command executed run-localosmosis:', data);
+    })
+        .catch((error) => {
+        console.error('Error executing CLI command:', error);
+    });
+}
+function handleStopLocalOsmosisRequest() {
+    fetch('http://137.184.34.49:3000/stop-localosmosis', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({})
+    })
+        .then((response) => {
+        return response.text();
+    })
+        .then((data) => {
+        console.log('CLI command executed stop-localosmosis:', data);
+    })
+        .catch((error) => {
+        console.error('Error executing CLI command:', error);
+    });
+}
 function GenerateCommand(msgValues) {
     // map msgName with cli name 
     var command = '';
@@ -243,9 +279,17 @@ document.addEventListener('DOMContentLoaded', function (event) {
 });
 const handleGenerateComandBtn = document.getElementById('handleGenerateComand');
 const handleLocalOsmosisBtn = document.getElementById('handleLocalOsmosis');
+const handleRunLocalOsmosisBtn = document.getElementById('run-localosmosis');
+const handleStopLocalOsmosisBtn = document.getElementById('stop-localosmosis');
 handleGenerateComandBtn === null || handleGenerateComandBtn === void 0 ? void 0 : handleGenerateComandBtn.addEventListener('click', function handleClick(e) {
     handleGenerateCommand();
 });
 handleLocalOsmosisBtn === null || handleLocalOsmosisBtn === void 0 ? void 0 : handleLocalOsmosisBtn.addEventListener('click', function handleClick(e) {
     handleSendRequest();
+});
+handleRunLocalOsmosisBtn === null || handleRunLocalOsmosisBtn === void 0 ? void 0 : handleRunLocalOsmosisBtn.addEventListener('click', function handleClick(e) {
+    handleRunLocalOsmosisRequest();
+});
+handleStopLocalOsmosisBtn === null || handleStopLocalOsmosisBtn === void 0 ? void 0 : handleStopLocalOsmosisBtn.addEventListener('click', function handleClick(e) {
+    handleStopLocalOsmosisRequest();
 });

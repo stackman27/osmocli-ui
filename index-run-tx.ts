@@ -242,7 +242,46 @@ function handleSendRequest(): void {
       console.error('Error executing CLI command:', error);
   });
 }
- 
+
+function handleRunLocalOsmosisRequest(): void {
+  fetch('http://137.184.34.49:3000/run-localosmosis', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({})
+})
+.then((response) => { 
+    return response.text();
+})
+.then((data) => {  
+    console.log('CLI command executed run-localosmosis:', data);
+})
+.catch((error) => {
+    console.error('Error executing CLI command:', error);
+});
+}
+
+function handleStopLocalOsmosisRequest(): void {
+  fetch('http://137.184.34.49:3000/stop-localosmosis', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({})
+})
+.then((response) => { 
+    return response.text();
+})
+.then((data) => {  
+    console.log('CLI command executed stop-localosmosis:', data);
+})
+.catch((error) => {
+    console.error('Error executing CLI command:', error);
+});
+}
+
+
 function GenerateCommand(msgValues: any) {
   // map msgName with cli name 
   var command: string = '';
@@ -316,6 +355,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 const handleGenerateComandBtn = document.getElementById('handleGenerateComand');
 const handleLocalOsmosisBtn = document.getElementById('handleLocalOsmosis');
+const handleRunLocalOsmosisBtn = document.getElementById('run-localosmosis');
+const handleStopLocalOsmosisBtn = document.getElementById('stop-localosmosis');
+
 
 handleGenerateComandBtn?.addEventListener('click', function handleClick(e) {
   handleGenerateCommand()
@@ -323,4 +365,13 @@ handleGenerateComandBtn?.addEventListener('click', function handleClick(e) {
 
 handleLocalOsmosisBtn?.addEventListener('click', function handleClick(e) {
   handleSendRequest()
+});
+
+
+handleRunLocalOsmosisBtn?.addEventListener('click', function handleClick(e) {
+  handleRunLocalOsmosisRequest()
+});
+
+handleStopLocalOsmosisBtn?.addEventListener('click', function handleClick(e) {
+  handleStopLocalOsmosisRequest()
 });

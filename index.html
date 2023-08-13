@@ -28,15 +28,14 @@
  
     <div id = "container">   
       <div id = "networkContainer">  
-        <label for="networks">Network:</label>
- 
+        <label for="networks">Network:</label>  
         <select name="networks" id="networks">
         <option value="localosmosis">LocalOsmosis</option>
         <option value="testnet">Testnet(osmo-test-5)</option>
         <option value="edgenet">Edgenet</option>
         <option value="mainnet">Mainnet</option>
       </select>
-    </div>
+    </div> 
     <br/>
 
       <div id = "selectContainerWrapper">  
@@ -58,6 +57,9 @@
     <br/> 
     <button id="handleGenerateComand">Generate Command</button> 
     <br/> <br/>
+    <button id="run-localosmosis">Run localosmosis off of main</button> 
+    <button id="stop-localosmosis">Stop localosmosis off of main</button> 
+    <br /> <br /> 
     <label >Command to execute</label>
     <br/>
     <textarea id="cmdToExecute" name="cmdToExecute" rows="4" cols="100">
