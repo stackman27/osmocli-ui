@@ -196,7 +196,8 @@ function handleGenerateCommand(): void {
 
  var msgName: any = document.getElementById('select-msgs') as HTMLInputElement;
  var moduleName: any = document.getElementById('select-module-element') as HTMLInputElement;
- 
+ var networkType: any = document.getElementById('networks') as HTMLInputElement;
+
  selectedInterface['msgName'] = msgName.value;
 
   console.log("Selected interface: ", selectedInterface)
@@ -205,7 +206,16 @@ function handleGenerateCommand(): void {
   console.log("finam command to run: ", command)
   let textArea: HTMLTextAreaElement = <HTMLTextAreaElement>document.getElementById('cmdToExecute');
   // TODO: Figure out a better way to change this
-  textArea.value = `osmosisd tx ${moduleName.value} ${command} --from lo-test1 --chain-id localosmosis -b block --keyring-backend test --fees 1000uosmo -y`
+  // edgenet
+  if (networkType.value == "edgenet") {
+    textArea.value = `osmosisd tx ${moduleName.value} ${command} --from lo-test1 --chain-id edgenet -b block --keyring-backend test --fees 1000uosmo -y --node https://rpc.edgenet.osmosis.zone:443`
+  } else if (networkType.value == "testnet") { 
+    // testnet 
+    textArea.value = `osmosisd tx ${moduleName.value} ${command} --from lo-test1 --chain-id osmo-test-5 -b block --keyring-backend test --fees 1000uosmo -y --node https://rpc.testnet.osmosis.zone:443` 
+  } else {
+    textArea.value = `osmosisd tx ${moduleName.value} --from lo-test1 --chain-id localosmosis -b block --keyring-backend test --fees 1000uosmo -y` 
+  }
+ 
 }
 
 function handleSendRequest(): void { 
